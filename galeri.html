@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEGAL TR - Galeri</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+    <header>
+        <div class="navbar">
+            <div class="logo">LEGAL TR<span> LSPD</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li class="dropdown">
+                        <a href="#">Hakkımızda 👇</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="departman.html">Departmanımız</a></li>
+                            <li><a href="personel.html">Personelimiz</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="basvuru.html">Başvuru</a></li>
+                    <li><a href="galeri.html" class="active">Galeri</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="admin-galeri-panel" class="admin-panel hidden">
+        <h3>📸 Yetkili Medya Yönetimi</h3>
+        <form id="galeri-form">
+            <select id="medya-tipi" required>
+                <option value="foto">Fotoğraf</option>
+                <option value="video">Video (YouTube/Streamable Linki)</option>
+            </select>
+            <input type="text" id="medya-url" placeholder="Medya URL Linkini Yapıştırın" required>
+            <button type="submit">Medyayı Ekle</button>
+        </form>
+        <button id="btn-logout-galeri" class="btn-logout">Çıkış Yap (Admin)</button>
+    </section>
+
+    <section class="galeri-section">
+        <h2>Ekip Galerisi</h2>
+        <div class="galeri-grid" id="galeri-listesi">
+            <div class="galeri-item" data-id="1">
+                <img src="https://via.placeholder.com/400x250" alt="LSPD Operasyon">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 LEGAL TR - Tüm Hakları Saklıdır.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

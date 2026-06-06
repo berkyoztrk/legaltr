@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEGAL TR - LSPD Başvuru Formu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="navbar">
+            <div class="logo">LEGAL TR<span> LSPD</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li class="dropdown">
+                        <a href="#">Hakkımızda 👇</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="departman.html">Departmanımız</a></li>
+                            <li><a href="personel.html">Personelimiz</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="basvuru.html" class="active">Başvuru</a></li>
+                    <li><a href="galeri.html">Galeri</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="form-container">
+        <h2>LSPD KAMU PERSONELİ ALIM FORMU</h2>
+        <form id="lspd-basvuru-formu">
+
+            <div class="form-section">
+                <h3>--- OUT OF CHARACTER (OOC) SORULAR ---</h3>
+                
+                <div class="form-group">
+                    <label for="ooc-ad">Gerçek Adınız *</label>
+                    <input type="text" id="ooc-ad" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="ooc-yas">Yaşınız *</label>
+                    <input type="number" id="ooc-yas" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="ooc-gecmis">FiveM Saati ve Rol Geçmişiniz *</label>
+                    <textarea id="ooc-gecmis" rows="3" placeholder="Kaç saatiniz var ve hangi sunucularda polislik yaptınız?" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="ooc-dc">Discord Kullanıcı Adınız *</label>
+                    <input type="text" id="ooc-dc" placeholder="Örn: legaltr_admin" required>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>--- IN CHARACTER (IC) SORULAR ---</h3>
+
+                <div class="form-group">
+                    <label for="ic-ad">Karakter Adınız (Ad_Soyad) *</label>
+                    <input type="text" id="ic-ad" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="ic-sabika">Sabıka Kaydınız Var mı? (IC) *</label>
+                    <select id="ic-sabika" required>
+                        <option value="">Seçiniz...</option>
+                        <option value="VAR">VAR</option>
+                        <option value="YOK">YOK</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="ic-fto">Field Training Officer (FTO) Nedir? (Kısaca anlatınız) *</label>
+                    <textarea id="ic-fto" rows="3" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="ic-pit">Pit ve Ram Manevrası Nedir? *</label>
+                    <textarea id="ic-pit" rows="3" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="ic-pullover">Pullover Durumu Nedir? *</label>
+                    <textarea id="ic-pullover" rows="3" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="ic-senaryo">Suçüstü yakaladığınız bir şahıs avukat tutma hakkını kullandı. Avukatı ile özel görüşmek istediğini iletti. Görüşmeden sonra avukat, suçları malum olmasına rağmen müvekkilinin indirim alması konusunda size ısrarcı durumda. Nasıl bir yaklaşım gösterirsiniz ve adaletin tecelli etmesi için ne gibi müdahalestones bulunursunuz? *</label>
+                    <textarea id="ic-senaryo" rows="5" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="ic-fark">Sizi diğer başvuranlardan farklı kılan nedir, sizi neden kabul edelim? *</label>
+                    <textarea id="ic-fark" rows="4" required></textarea>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="onay-polis-kural" required>
+                    <label for="onay-polis-kural">Polis Genel Kurallarını okuyup kurallara uyacağınızı onaylıyor musunuz? *</label>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="onay-ck" required>
+                    <label for="onay-ck">Polis'den çıkmak istediğinizde karakterinizin "CK" (Karakter Ölümü) gerçekleşeceğini onaylıyor musunuz? *</label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit">Başvuruyu Tamamla ve Gönder</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 LEGAL TR - Tüm Hakları Saklıdır.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

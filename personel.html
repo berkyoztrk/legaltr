@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEGAL TR - Personelimiz</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+    <header>
+        <div class="navbar">
+            <div class="logo">LEGAL TR<span> LSPD</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="active">Hakkımızda 👇</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="departman.html">Departmanımız</a></li>
+                            <li><a href="personel.html">Personelimiz</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="basvuru.html">Başvuru</a></li>
+                    <li><a href="galeri.html">Galeri</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="admin-personel-panel" class="admin-panel hidden">
+        <h3>👮 Yetkili Personel Yönetimi</h3>
+        <form id="personel-form">
+            <input type="text" id="p-isim" placeholder="Personel Adı Soyadı (Rütbe)" required>
+            <input type="text" id="p-foto" placeholder="Fotoğraf URL Linki" required>
+            <button type="submit">Personel Ekle</button>
+        </form>
+        <button id="btn-logout-personel" class="btn-logout">Çıkış Yap (Admin)</button>
+    </section>
+
+    <section class="personel-section">
+        <h2>Departman Personellerimiz</h2>
+        <div class="personel-grid" id="personel-listesi">
+            <div class="personel-card" data-id="1">
+                <img src="https://via.placeholder.com/150" alt="Personel">
+                <h4>John Doe - Chief of Police</h4>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 LEGAL TR - Tüm Hakları Saklıdır.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

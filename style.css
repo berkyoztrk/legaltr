@@ -1,0 +1,566 @@
+/* ==========================================================================
+   1. GENEL AYARLAR VE DEĞİŞKENLER
+   ========================================================================== */
+:root {
+    --bg-color: #0a0f1d;       /* Derin Koyu Lacivert Arka Plan */
+    --card-bg: #131a30;        /* Kartlar için Açık Lacivert */
+    --police-blue: #1d4ed8;    /* Canlı Polis Mavisi */
+    --police-light: #3b82f6;   /* Açık Mavi Detaylar */
+    --gold: #eab308;           /* Rozet ve Detay Altın Sarısı */
+    --text-white: #f8fafc;     /* Temiz Beyaz Yazı */
+    --text-gray: #94a3b8;      /* Yardımcı Yazı Grisi */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-white);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. NAVİGASYON (HEADER) TASARIMI
+   ========================================================================== */
+header {
+    background-color: rgba(10, 15, 29, 0.95);
+    border-bottom: 3px solid var(--police-blue);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--text-white);
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: var(--text-white);
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    color: var(--gold);
+}
+
+/* Açılır Menü (Dropdown) Ayarları */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--card-bg);
+    border-top: 2px solid var(--gold);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+    display: none;
+    min-width: 180px;
+}
+
+.dropdown-menu li a {
+    padding: 12px 20px;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* ==========================================================================
+   3. ANA SAYFA (HERO & BİRİMLER) TASARIMI
+   ========================================================================== */
+/* Hero Bölümü */
+.hero {
+    height: 70vh;
+    background: linear-gradient(rgba(10, 15, 29, 0.8), rgba(10, 15, 29, 0.9)), 
+                url('https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?q=80&w=1920') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+    margin-top: 65px; /* Navbar boşluğu */
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    color: var(--text-white);
+    text-shadow: 0 4px 10px rgba(0,0,0,0.7);
+}
+
+.hero-content p {
+    font-size: 20px;
+    color: var(--text-gray);
+    margin-bottom: 30px;
+}
+
+.btn-discord {
+    background-color: #5865F2; /* Discord Orijinal Rengi */
+    color: white;
+    text-decoration: none;
+    padding: 15px 35px;
+    font-weight: 700;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+    box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
+}
+
+.btn-discord:hover {
+    background-color: #4752c4;
+    transform: translateY(-2px);
+}
+
+/* Birimlerimiz Grid Yapısı */
+.units-section {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.units-section h2 {
+    text-align: center;
+    font-size: 36px;
+    color: var(--text-white);
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.units-section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--gold);
+    margin: 10px auto 0 auto;
+}
+
+.section-desc {
+    text-align: center;
+    color: var(--text-gray);
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+}
+
+.units-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.unit-card {
+    background-color: var(--card-bg);
+    border-left: 4px solid var(--police-blue);
+    padding: 25px;
+    border-radius: 4px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.unit-card h3 {
+    color: var(--gold);
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+.unit-card p {
+    color: var(--text-gray);
+    font-size: 14px;
+}
+
+.unit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* +12 Birim Kartı Vurgusu */
+.highlight-card {
+    grid-column: span 1;
+    background: linear-gradient(135deg, #131a30, #1e294b);
+    border-left: 4px solid var(--gold);
+}
+
+@media (min-width: 900px) {
+    .highlight-card {
+        grid-column: span 2;
+    }
+}
+
+/* ==========================================================================
+   4. KURUMSAL (DEPARTMAN & PERSONEL) TASARIMI
+   ========================================================================== */
+.about-container {
+    max-width: 900px;
+    margin: 120px auto 60px auto;
+    padding: 0 20px;
+}
+
+.about-card {
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: 6px;
+    margin-bottom: 30px;
+    border-top: 4px solid var(--police-blue);
+}
+
+.about-card h2 {
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+/* Personel Kartları */
+.personel-section {
+    max-width: 1200px;
+    margin: 120px auto 60px auto;
+    padding: 0 20px;
+}
+
+.personel-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.personel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.personel-card {
+    background-color: var(--card-bg);
+    border-radius: 6px;
+    overflow: hidden;
+    text-align: center;
+    padding-bottom: 20px;
+    border: 1px solid rgba(255,255,255,0.05);
+    position: relative;
+}
+
+.personel-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-bottom: 3px solid var(--police-blue);
+}
+
+.personel-card h4 {
+    margin-top: 15px;
+    padding: 0 10px;
+    font-size: 16px;
+}
+
+/* ==========================================================================
+   5. BAŞVURU FORMU TASARIMI
+   ========================================================================== */
+.form-container {
+    max-width: 800px;
+    margin: 120px auto 60px auto;
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.form-container h2 {
+    text-align: center;
+    color: var(--gold);
+    margin-bottom: 30px;
+    border-bottom: 2px solid rgba(255,255,255,0.1);
+    padding-bottom: 15px;
+}
+
+.form-section {
+    margin-bottom: 35px;
+}
+
+.form-section h3 {
+    color: var(--police-light);
+    font-size: 16px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: #0b1120;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 4px;
+    color: white;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--police-light);
+    outline: none;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.checkbox-group input {
+    margin-top: 5px;
+}
+
+.btn-submit {
+    width: 100%;
+    background-color: var(--police-blue);
+    color: white;
+    padding: 15px;
+    border: none;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #2563eb;
+}
+
+/* ==========================================================================
+   6. GALERİ TASARIMI
+   ========================================================================== */
+.galeri-section {
+    max-width: 1200px;
+    margin: 120px auto 60px auto;
+    padding: 0 20px;
+}
+
+.galeri-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.galeri-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.galeri-item {
+    background-color: var(--card-bg);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.galeri-item img, .galeri-item iframe {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+/* ==========================================================================
+   7. ADMIN VE LOGGIN SİSTEMİ STİLLERİ
+   ========================================================================== */
+/* Gizli Admin Girişleri Panelleri */
+.admin-panel {
+    max-width: 1200px;
+    margin: 100px auto 0 auto;
+    background-color: #1e1b4b; /* Belirgin Morumsu Koyu Ton */
+    padding: 20px;
+    border-radius: 6px;
+    border: 2px dashed var(--gold);
+}
+
+.admin-panel h3 {
+    color: var(--gold);
+    margin-bottom: 15px;
+}
+
+.admin-panel form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+}
+
+.admin-panel form input, .admin-panel form select {
+    padding: 10px;
+    background-color: #0b1120;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    border-radius: 4px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.admin-panel form button {
+    padding: 10px 25px;
+    background-color: var(--gold);
+    color: #000;
+    border: none;
+    font-weight: 700;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-logout {
+    margin-top: 15px;
+    background-color: #dc2626;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.btn-delete {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(220, 38, 38, 0.9);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    z-index: 10;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Bağımsız Login Kutusu Sayfası */
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-box {
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+}
+
+.login-box h2 {
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+.login-box p {
+    color: var(--text-gray);
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.btn-login {
+    width: 100%;
+    background-color: var(--police-blue);
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* ==========================================================================
+   8. FOOTER TASARIMI
+   ========================================================================== */
+footer {
+    background-color: #060a14;
+    text-align: center;
+    padding: 25px 20px;
+    margin-top: 60px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    position: relative;
+}
+
+footer p {
+    color: var(--text-gray);
+    font-size: 14px;
+}
+
+.secret-login {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    color: #1e293b; /* Neredeyse görünmez, çok silik */
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.secret-login:hover {
+    color: var(--gold); /* Üzerine gelince belli olur */
+}
